@@ -7,11 +7,11 @@ Implementation JSON Web Token for Authentication in Laravel Lumen
 Use the package manager [composer](https://getcomposer.org/) to install the dependency.
 
 ```bash
-composer update
+composer install
 ```
 set your `.env` file by copying `.env.example` and set up your database config.
 
-## Database Migratio
+## Database Migration
 
 ```bash
 php artisan migrate
