@@ -25,7 +25,7 @@ class UserController extends Controller
 
    public function register(Request $request)
    {
-
+    //dd($request);
    	$this->validate($request, [
 			     'name'       => 'required|string|max:255',
            'email'      => 'required|string|max:255|unique:users|email|confirmed',
@@ -36,7 +36,7 @@ class UserController extends Controller
         	$user = User::create([
 	            'name' 		  => $request['name'],
 	            'email' 	  => $request['email'],
-	            'password' 	=> Hash::make($request['password']),
+	            'password' 	=> app('hash')->make($request['password']),
 	        ]);
         } catch (ModelNotFoundException $exception) {
             return response()->json(['error'=>$exception->getMessage()]);
@@ -48,7 +48,6 @@ class UserController extends Controller
 
    public function authenticate(Request $request)
    {
-         //validate incoming request 
         $this->validate($request, [
             'email' => 'required|string',
             'password' => 'required|string',
