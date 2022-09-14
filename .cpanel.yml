@@ -1,0 +1,5 @@
+---
+deployment:
+      tasks:
+        - export DEPLOYPATH=/home/ignaonon/jwtauth.ignatha.website
+        - /bin/cp -r /home/ignaonon/repositories/jwt-lumen/* $DEPLOYPATH
