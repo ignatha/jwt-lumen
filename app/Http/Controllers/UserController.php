@@ -55,7 +55,7 @@ class UserController extends Controller
 
         $credentials = $request->only(['email', 'password']);
 
-        if (! $token = Auth::claims(['csrf-token' => str_random(32)])->attempt($credentials)) {
+        if (! $token = Auth::claims(['csrf-token' => Str::random(64)])->attempt($credentials)) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
