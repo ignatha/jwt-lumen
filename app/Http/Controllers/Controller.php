@@ -13,6 +13,7 @@ class Controller extends BaseController
         return response()->json([
             'token' => $token,
             'token_type' => 'bearer',
+            'csrf_token' => auth()->payload()->get('csrf-token'),
             'expires_in' => Auth::factory()->getTTL() * 60
         ], 200);
     }
